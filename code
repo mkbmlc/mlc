@@ -1,13 +1,18 @@
 pip install --upgrade openai
 
+
 from openai import OpenAI
 client = OpenAI(
-    api_key="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"
+    api_key="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",
+    base_url="https://openrouter.ai/api/v1"
 )
-response = client.responses.create(
-    model="gpt-4.1-mini",
-    input="""
-    write a program in python to find prime no.
-"""
+
+
+response = client.chat.completions.create(
+    model="meta-llama/llama-3.1-8b-instruct",
+    messages=[{
+            "role": "user",
+            "content": "Create a 4×4 NumPy array with numbers 1 to 16 and Extract the 2×2 bottom-left sub-matrix"
+        }]
 )
-print(response.output_text)
+print(response.choices[0].message.content)
