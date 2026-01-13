@@ -1,0 +1,13 @@
+pip install --upgrade openai
+
+from openai import OpenAI
+client = OpenAI(
+    api_key="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"
+)
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input="""
+    write a program in python to find prime no.
+"""
+)
+print(response.output_text)
