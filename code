@@ -2,7 +2,7 @@ pip install --upgrade openai
 
 from openai import OpenAI
 client = OpenAI(
-    api_key="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"
+    api_key="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"
 )
 response = client.responses.create(
     model="gpt-4.1-mini",
